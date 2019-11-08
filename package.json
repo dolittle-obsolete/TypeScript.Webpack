@@ -1,0 +1,39 @@
+{
+  "name": "@dolittle/typescript.webpack",
+  "version": "1.0.0",
+  "description": "Build tool for webpack-based applications",
+  "homepage": "https://dolittle.io/",
+  "author": "Dolittle",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dolittle-tools/Typescript.WebPack.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "Distribution"
+  ],
+  "main": "Distribution/index.js",
+  "types": "Distribution/index.d.ts",
+  "scripts": {
+    "tasks": "gulp --tasks --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js",
+    "clean": "gulp clean --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js",
+    "build": "gulp build --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js",
+    "test": "gulp test --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js",
+    "test:run": "gulp test-run --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js",
+    "test:clean": "gulp test-clean --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js",
+    "prepublishOnly": "yarn build && yarn test:run && yarn test:clean"
+  },
+  "dependencies": {
+    "@dolittle/typescript.build.node": "^1.1.0",
+    "webpack": "^4.41.2"
+  },
+  "devDependencies": {
+    "@types/fancy-log": "^1.3.1",
+    "@types/gulp": "^4.0.6",
+    "@types/rimraf": "^2.0.3",
+    "@types/webpack": "^4.39.8"
+  }
+}
