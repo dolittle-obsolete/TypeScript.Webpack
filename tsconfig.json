@@ -1,8 +1,30 @@
 {
-    "extends": "./node_modules/@dolittle/typescript.build.node/TSConfig/tsconfig.base.json",
-    "compilerOptions": {
-        "target": "es2017",
-        "declaration": false
-    }
-  }
-  
+  "compilerOptions": {
+    "rootDir": "./Source",
+    "baseUrl": "./Source",
+    "paths": {
+      "@dolittle/typescript.build": ["Source/index.ts"]
+    },
+    "sourceRoot": "./Source",
+    "outDir": "./Distribution",
+    "declarationDir": "./Distribution",
+    "lib": ["es2017"],
+    "module": "commonjs",
+    "target": "es2015",
+    "esModuleInterop": true,
+    "stripInternal": true,
+    
+    "declaration": true,
+
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "moduleResolution": "node",
+    "inlineSourceMap": true,
+    "inlineSources": true,
+
+    "experimentalDecorators": true
+  },
+  "include": ["Source/**/*.ts"]
+}
