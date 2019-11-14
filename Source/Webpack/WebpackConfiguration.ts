@@ -57,6 +57,7 @@ export class WebpackConfiguration {
     private getResolve() {
         let resolve: Resolve = {
             symlinks: false,
+            mainFields: ['main'],
             extensions: ['.ts', '.js'],
             modules: [path.resolve(this._featuresDir), path.resolve(this._componentDir), 'node_modules'],
             alias: {
@@ -165,7 +166,7 @@ export class WebpackConfiguration {
         let plugins: Plugin[] = [
             new CleanWebpackPlugin(),
             new ProvidePlugin({
-                'Promise': ['promise-polyfill', 'default']
+                'Promise': ['es6-promise']
             }),
             // new WatchIgnorePlugin(['**/for_*']),
             new HtmlWebpackPlugin({
