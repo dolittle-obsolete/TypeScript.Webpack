@@ -5,12 +5,13 @@
 import { Configuration } from "webpack";
 import { WebpackConfiguration } from "./WebpackConfiguration";
 import { WebpackEnvironment } from "./WebpackEnvironment"; 
+import { WebpackArguments } from "./WebpackArguments";
 
 
 export function webpack(dirname: string, settingsCallback?: (config: Configuration) => void) {
-    return (env: WebpackEnvironment = {}) => {
-        let config = new WebpackConfiguration(dirname, env).createConfiguration();
+    return (env: WebpackEnvironment = {}, argv: WebpackArguments) => {
+        let config = new WebpackConfiguration(dirname, env, argv).createConfiguration();
         if (typeof settingsCallback === 'function') settingsCallback(config);
-        return config;
+        return (config);
     }
 }

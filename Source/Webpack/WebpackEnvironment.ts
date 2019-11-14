@@ -7,7 +7,4 @@
  */
 export type WebpackEnvironment = {
     production?: boolean;
-    server?: boolean;
-    extractCss?: boolean;
-    analyze?: boolean;
 }
