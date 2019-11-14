@@ -4,6 +4,4 @@
 *--------------------------------------------------------------------------------------------*/
 
 export * from './Webpack/webpack';
-import webpack from 'webpack';
-let x = {};
-webpack(x as any, (_, stats) => {stats.toString()})
+export * from './Webpack/WebpackEnvironment';
