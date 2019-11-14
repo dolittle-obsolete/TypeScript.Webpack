@@ -185,8 +185,6 @@ export class WebpackConfiguration {
                 filename: this._environment.production === true ? 'css/[name].[contenthash].bundle.css' : 'css/[name].[hash].bundle.css',
                 chunkFilename: this._environment.production === true ? 'css/[name].[contenthash].chunk.css' : 'css/[name].[hash].chunk.css'
               })),
-            ...when(this._environment.production!, new HotModuleReplacementPlugin()),
-            
             ...when(this._argv.analyze!, new BundleAnalyzerPlugin()),
         ];
         return plugins;
