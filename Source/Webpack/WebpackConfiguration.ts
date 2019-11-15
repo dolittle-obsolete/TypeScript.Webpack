@@ -2,13 +2,14 @@
 *  Copyright (c) Dolittle. All rights reserved.
 *  Licensed under the MIT License. See LICENSE in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
-import { Configuration, Output, Resolve, Options, Module, Plugin, ProvidePlugin, HotModuleReplacementPlugin  } from "webpack";
+import { Configuration, Output, Resolve, Options, Module, Plugin, ProvidePlugin  } from "webpack";
 import fs from "fs";
 import path from 'path';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import DuplicatePackageChecker from 'duplicate-package-checker-webpack-plugin';
 
 import { WebpackEnvironment } from "./WebpackEnvironment";
 import { WebpackArguments } from "./WebpackArguments";
@@ -164,6 +165,7 @@ export class WebpackConfiguration {
     
     private getPlugins() {
         let plugins: Plugin[] = [
+            new DuplicatePackageChecker(),
             new CleanWebpackPlugin(),
             new ProvidePlugin({
                 'Promise': ['es6-promise']
