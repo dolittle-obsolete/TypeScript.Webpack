@@ -7,7 +7,6 @@ import { WebpackConfiguration } from "./WebpackConfiguration";
 import { WebpackEnvironment } from "./WebpackEnvironment"; 
 import { WebpackArguments } from "./WebpackArguments";
 
-
 export function webpack(dirname: string, settingsCallback?: (config: Configuration) => void) {
     return (env: WebpackEnvironment = {}, argv: WebpackArguments = {}) => {
         let config = new WebpackConfiguration(dirname, env, argv).createConfiguration();
