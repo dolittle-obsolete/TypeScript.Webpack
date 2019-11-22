@@ -166,7 +166,7 @@ export class WebpackConfiguration {
     private getPlugins() {
         let plugins: Plugin[] = [
             new DuplicatePackageChecker(),
-            new CleanWebpackPlugin(),
+            new CleanWebpackPlugin({dangerouslyAllowCleanPatternsOutsideProject: true, dry: false}),
             new ProvidePlugin({
                 'Promise': ['es6-promise']
             }),
