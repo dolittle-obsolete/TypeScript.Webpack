@@ -1,6 +1,6 @@
 {
   "name": "@dolittle/typescript.webpack",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Build tool for webpack-based applications",
   "homepage": "https://dolittle.io/",
   "author": "Dolittle",
@@ -14,7 +14,7 @@
   },
   "files": [
     "Distribution",
-    "Source/*.ts"
+    "Source/**"
   ],
   "main": "Distribution/index.js",
   "types": "Distribution/index.d.ts",
