@@ -62,7 +62,7 @@ export class WebpackConfiguration {
             extensions: ['.ts', '.js'],
             modules: [path.resolve(this._featuresDir), path.resolve(this._componentDir), 'node_modules'],
             alias: {
-                DolittleStyles: path.resolve(this._rootDir, './styles') 
+                DolittleStyles: path.resolve(this._rootDir, 'Styles') 
             }
         };
         return resolve;
