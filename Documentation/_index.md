@@ -1,5 +1,5 @@
 ---
-title: TypeScript webpack
+title: Webpack
 description: Learn about our pre-configured webpack for TypeScript
 keywords: Tools, typescript, webpack
 author: woksin
