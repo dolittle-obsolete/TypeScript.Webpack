@@ -77,7 +77,9 @@ export class WebpackConfiguration {
 
     createConfiguration(): Configuration {
         let config: Configuration = {};
-        config.mode = this._environment.production ? 'production' : 'development';
+        config.mode = this._environment.production
+            ? 'production'
+            : 'development';
         config.context = this._rootDir;
         config.target = 'web';
         (config as any).devServer = {
@@ -145,7 +147,9 @@ export class WebpackConfiguration {
     }
 
     private getDevtool() {
-        let devtool: any = !this._environment.production ? 'inline-source-map' : '';
+        let devtool: any = !this._environment.production
+            ? 'inline-source-map'
+            : '';
         return devtool;
     }
 
@@ -157,6 +161,7 @@ export class WebpackConfiguration {
                     // CSS required in JS/TS files should use the style-loader that auto-injects it into the website
                     // only when the issuer is a .js/.ts file, so the loaders are not applied inside html templates
                     test: /\.css$/i,
+                    issuer: [{ not: [{ test: /\.html$/i }] }],
                     use: this._args.extractCss
                         ? [
                               {
@@ -167,7 +172,20 @@ export class WebpackConfiguration {
                         : ['style-loader', ...this._cssRules]
                 },
                 {
+                    test: /\.css$/i,
+                    issuer: [{ test: /\.html$/i }],
+                    use: this._args.extractCss
+                        ? [
+                              {
+                                  loader: MiniCssExtractPlugin.loader
+                              },
+                              ...this._cssRules
+                          ]
+                        : this._cssRules
+                },
+                {
                     test: /\.scss$/,
+                    issuer: /\.[tj]s$/i,
                     use: this._args.extractCss
                         ? [
                               {
@@ -176,6 +194,18 @@ export class WebpackConfiguration {
                               ...this._scssRules
                           ]
                         : ['style-loader', ...this._scssRules]
+                },
+                {
+                    test: /\.scss$/,
+                    issuer: /\.html?$/i,
+                    use: this._args.extractCss
+                        ? [
+                              {
+                                  loader: MiniCssExtractPlugin.loader
+                              },
+                              ...this._scssRules
+                          ]
+                        : this._scssRules
                 },
                 //html
                 { test: /\.html$/i, loader: 'html-loader' },
