@@ -76,8 +76,6 @@ export class WebpackConfiguration {
     }
 
     createConfiguration(): Configuration {
-        console.log('args',this._args);
-        console.log('environment',this._environment.production);
         let config: Configuration = {};
         config.mode = this._environment.production ? 'production' : 'development';
         config.context = this._rootDir;
