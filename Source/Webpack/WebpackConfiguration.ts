@@ -263,7 +263,9 @@ export class WebpackConfiguration {
             new DuplicatePackageChecker(),
             new CleanWebpackPlugin({
                 dangerouslyAllowCleanPatternsOutsideProject: true,
-                dry: false
+                dry: false,
+                cleanStaleWebpackAssets: false,
+                cleanOnceBeforeBuildPatterns: ['**/*.*']
             }),
             new ProvidePlugin({
                 Promise: ['es6-promise']
