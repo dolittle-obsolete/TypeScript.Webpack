@@ -40,9 +40,9 @@ export class WebpackConfiguration {
         'sass-loader'
     ];
 
-    private _featuresDir = process.env.DOLITTLE_FEATURES_DIR || './Features';
+    private _featuresDir = process.env.DOLITTLE_FEATURES_DIR || './features';
     private _componentDir =
-        process.env.DOLITTLE_COMPONENT_DIR || './Components';
+        process.env.DOLITTLE_COMPONENT_DIR || './components';
 
     private _outDir =
         process.env.DOLITTLE_WEBPACK_OUT ||
@@ -109,7 +109,7 @@ export class WebpackConfiguration {
                 'node_modules'
             ],
             alias: {
-                DolittleStyles: path.resolve(this._rootDir, 'Styles')
+                DolittleStyles: path.resolve(this._rootDir, 'styles')
             }
         };
         return resolve;
