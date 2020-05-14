@@ -237,7 +237,10 @@ export class WebpackConfiguration {
                 // load these fonts normally, as files:
                 {
                     test: /\.(ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
-                    loader: 'file-loader'
+                    loader: 'file-loader',
+                    options: {
+                        esModule: false
+                    }
                 },
                 {
                     test: /environment\.json$/i,
