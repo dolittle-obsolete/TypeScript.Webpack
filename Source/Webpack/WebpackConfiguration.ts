@@ -68,7 +68,7 @@ export class WebpackConfiguration {
                 case '--env.production':
                     this._environment.production = true;
                     break;
-                case '--analye':
+                case '--analyze':
                     this._args.analyze = true;
                     break;
             }
